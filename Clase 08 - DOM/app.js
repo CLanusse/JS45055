@@ -162,7 +162,7 @@ const productos = [
 // }
 
 
-console.log( document.querySelector('#articulo div .titulo') )
+// console.log( document.querySelector('#articulo[data-id="coderhouse"]') )
 
 const containerProductos = document.querySelector('#productos')
 
