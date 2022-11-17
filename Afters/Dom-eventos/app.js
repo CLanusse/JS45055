@@ -55,6 +55,14 @@ const agregarAlCarrito = (id) => {
     const producto = stockProductos.find( (item) => item.id === id )
     carrito.push(producto)
 
+    Swal.fire({
+        icon: 'success',
+        title: 'Producto agregado al carrito',
+        toast: true,
+        timer: 1500,
+        showConfirmButton: false,
+        position: 'bottom-left'
+    })
     console.log(carrito)
     renderCarrito()
 }
@@ -101,3 +109,31 @@ const renderTotalCarrito = () => {
 // const renderTotalCarrito = () => {
 //     contadorPrecioTotal.innerText = carrito.reduce((acc, producto) => acc += producto.precio, 0)
 // }
+
+
+// vaciar carrito
+const btnVaciar = document.querySelector(`#vaciarCarrito`)
+
+btnVaciar.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Está seguro?',
+        text: 'Esta acción no es reversible',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, estoy seguro',
+        cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+        
+        if (result.isConfirmed) {        
+            Swal.fire({
+                title: 'Carrito vaciado',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+                timer: 1500
+            })
+
+            carrito.length = 0
+            renderCarrito()
+        }
+    })
+})

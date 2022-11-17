@@ -55,15 +55,17 @@ const inputNombre = myForm.querySelector('input[type=text]')
 const inputNota = myForm.querySelector('input[type=number]')
 
 
-let estudiantes = []
+// let estudiantes = []
 
-const estudiantesLS = JSON.parse(localStorage.getItem('estudiantes'))
+// const estudiantesLS = JSON.parse(localStorage.getItem('estudiantes'))
 
-console.log(estudiantesLS)
+// console.log(estudiantesLS)
 
-if (estudiantesLS !== null) {
-    estudiantes = estudiantesLS
-}
+// if (estudiantesLS !== null) {
+//     estudiantes = estudiantesLS
+// }
+
+const estudiantes = JSON.parse(localStorage.getItem('estudiantes')) || []
 
 myForm.addEventListener('submit', (event) => {
     event.preventDefault()
